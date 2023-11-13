@@ -1,0 +1,14 @@
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+RewriteRule ^blog-detail-([0-9a-zA-Z-_]+)-([0-9]+)$    blog-detail.php?page=$1&blog_id=$2 [L,QSA] 
+RewriteRule ^category-([0-9a-zA-Z-_]+)-([0-9]+)$       category.php?page=$1&cat_id=$2 [L,QSA] 
+RewriteRule ^content-detail-([0-9a-zA-Z-_]+)-([0-9]+)$ content-detail.php?page=$1&content_id=$2 [L,QSA] 
+
+ErrorDocument 404 http://phplesson/Blog2/404.php
+
